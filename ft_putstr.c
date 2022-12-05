@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 22:52:18 by zelhajou          #+#    #+#             */
-/*   Updated: 2022/12/05 01:20:51 by zelhajou         ###   ########.fr       */
+/*   Created: 2022/12/02 12:03:30 by zelhajou          #+#    #+#             */
+/*   Updated: 2022/12/02 15:15:30 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <unistd.h>
-
-void	ft_putchr(char c);
-
-#endif
+void	ft_putstr(char *str)
+{
+	if (!s)
+		return (ft_putstr("(null)"));
+	while(*str != '\0')
+	{
+		ft_putchr(*str);
+		str++;
+	}
+}
