@@ -15,9 +15,17 @@ For detailed information, refer to the [subject of this project](https://github.
   - It’s a special token which marks the function as variadic, so, int a_function ( int x, ... ); would tell the compiler the function should accept however many arguments that the programmer uses, as long as it is equal to at least one, the one being the first, x
 
 - How do we access the extra arguments passed in the call? 
-  - We'll need to use some macros (which work much like functions, and you can treat them as such) from the ```stdarg.h``` header file to extract the values stored in the variable argument list--`va_start`, which initializes the list, `va_arg`, which returns the next argument in the list, and `va_end`, which cleans up the variable argument list.
-  - `va_list` is used in situations in which we need to access optional parameters and it is an argument list. So, our list will contain some data that will be accessed after we declare our `va_list`
-1. `va_start` is a macro which accepts two arguments, a `va_list` and the name of the variable that directly precedes the ellipsis ("..."). So in the function a_function, to initialize a_list with va_start, you would write va_start ( a_list, x );
+  - We'll need to use some macros from the ```stdarg.h``` header file to extract the values stored in the variable argument list.
+  - To process the variable argument list, four macros are used:
+    - `va_list`
+    - `va_start()`
+    - `va_arg()`
+    - `va_end()`
+1. **`va_list`** :
+    - *`va_list`* is used in situations in which we need to access optional parameters and it is an argument list. So, our list will contain some data that will be accessed after we declare our *`va_list`*
+    - The *`va_list`* macro declares a variable representing each argument. This variable is used by the other three macros.
+    - *`va_list`* is like any other type. It’s effectively a pointer to an arguments in the var-args array. After calling *`va_start`*, argp points at the first var-argument.
+3. *`va_start`* is a macro which accepts two arguments, a *`va_list`* and the name of the variable that directly precedes the ellipsis ("..."). So in the function a_function, to initialize a_list with va_start, you would write va_start ( a_list, x );
     ```c
       int ft_printf(char* format, ...)
       {
@@ -27,7 +35,9 @@ For detailed information, refer to the [subject of this project](https://github.
       }
     ```
 2. ```va_arg``` You call it with a va_list and a type, and it takes value pointed at by the ```va_list``` as a value of the given type, then increment the pointer by the size of that pointer. For example, ```va_arg(argp, int)``` will return ```(int) *argp```, and increment the pointer, so ```argp += sizeof int```.
-3. At the point that we’ve stopped consuming arguments, we must call ```va_end(argp)```.
+3. At the point that we’ve stopped consuming arguments, we must call ```va_end(argp)``` cleaning up whatever memory was used when the va_end variable was declared.
+
+
 
 ## 🗒 Notes
 - ### Printf 
@@ -68,6 +78,7 @@ For detailed information, refer to the [subject of this project](https://github.
 - [c-varargs](https://jameshfisher.com/2016/11/23/c-varargs/)
 - [Variable Argument Lists in C using va_list](https://www.cprogramming.com/tutorial/c/lesson17.html)
 - [C Variadic Function](https://www.thegeekstuff.com/2017/05/c-variadic-functions/)
+- [Variable Argument Lists](https://c-for-dummies.com/blog/?p=3398)
 - [System V Application Binary Interface (PDF)](https://github.com/zakelhajoui/ft_printf/blob/main/x86-64-psABI-1.0.pdf)
 - [Secrets of “printf” (PDF)](https://quizgen.doncolton.com/tut/q11.printf.p6.pdf)
 - [printf](https://cplusplus.com/reference/cstdio/printf/)
