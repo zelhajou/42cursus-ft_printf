@@ -6,13 +6,13 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 12:08:37 by zelhajou          #+#    #+#             */
-/*   Updated: 2022/12/05 01:37:31 by zelhajou         ###   ########.fr       */
+/*   Updated: 2022/12/09 23:17:03 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
-void	ft_putchr(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
