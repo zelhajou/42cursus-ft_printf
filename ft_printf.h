@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 22:52:18 by zelhajou          #+#    #+#             */
-/*   Updated: 2022/12/10 03:23:21 by zelhajou         ###   ########.fr       */
+/*   Updated: 2022/12/13 05:22:48 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_putnbr(int nb);
-void	ft_putunbr(unsigned int nbr);
-void	ft_puthex(unsigned long nbr, char c);
-void	ft_putaddr(unsigned long addr);
+int	ft_printf(const char *format, ...);
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
+int	ft_putnbr(int nb);
+int	ft_putunbr(unsigned int nbr);
+int	ft_puthex(unsigned long nbr, char c);
+int	ft_putaddr(unsigned long addr);
 
 #endif

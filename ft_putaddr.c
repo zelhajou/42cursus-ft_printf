@@ -6,14 +6,18 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 22:56:56 by zelhajou          #+#    #+#             */
-/*   Updated: 2022/12/10 03:22:57 by zelhajou         ###   ########.fr       */
+/*   Updated: 2022/12/13 05:21:22 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putaddr(unsigned long addr)
+int	ft_putaddr(unsigned long addr)
 {
-	write(1, "0x", 2);
-	ft_puthex(addr, 'x');
+	int	len;
+
+	len = 0;
+	len += ft_putstr("0x");
+	len += ft_puthex(addr, 'x');
+	return (len);
 }

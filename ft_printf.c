@@ -6,56 +6,52 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 22:52:23 by zelhajou          #+#    #+#             */
-/*   Updated: 2022/12/10 03:23:01 by zelhajou         ###   ########.fr       */
+/*   Updated: 2022/12/13 05:23:30 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	check_type(va_list argp, const char *format)
+static void	check_type(va_list argp, const char *format, int *len)
 {
 	if (*format == '%')
-		ft_putchar('%');
+		*len += ft_putchar('%');
 	else if (*format == 'c')
-		ft_putchar((char)va_arg(argp, int));
+		*len += ft_putchar((char)va_arg(argp, int));
 	else if (*format == 's')
-		ft_putstr(va_arg(argp, char *));
+		*len += ft_putstr(va_arg(argp, char *));
 	else if (*format == 'i' || *format == 'd')
-		ft_putnbr(va_arg(argp, int));
+		*len += ft_putnbr(va_arg(argp, int));
 	else if (*format == 'u')
-		ft_putunbr(va_arg(argp, unsigned int));
+		*len += ft_putunbr(va_arg(argp, unsigned int));
 	else if (*format == 'x' || *format == 'X')
-		ft_puthex(va_arg(argp, unsigned int), *format);
+		*len += ft_puthex(va_arg(argp, unsigned int), *format);
 	else if (*format == 'p')
-		ft_putaddr(va_arg(argp, unsigned long));
+		*len += ft_putaddr(va_arg(argp, unsigned long));
 	else
-		ft_putchar(*format);
+		*len += ft_putchar(*format);
 }
 
-void	ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
+	int		len;
 	va_list	argp;
 
+	len = 0;
 	va_start(argp, format);
 	while (*format != '\0')
 	{
 		if (*format == '%' && !*(format + 1))
-			break;
+			break ;
 		if (*format == '%')
 		{
 			format++;
-			check_type(argp, format);
+			check_type(argp, format, &len);
 		}
 		else
-			ft_putchar(*format);
+			len += ft_putchar(*format);
 		format++;
 	}
 	va_end(argp);
-}
-
-int	main(void)
-{
-	int a = 10;
-	ft_printf("%p\n", &a);
-	printf("%p\n", &a);
+	return (len);
 }
