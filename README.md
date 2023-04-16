@@ -21,11 +21,10 @@ For detailed information, refer to the [subject of this project](https://github.
     - `va_start()`
     - `va_arg()`
     - `va_end()`
-1. **`va_list`** :
+1. **`va_list`** : Create a list of arguments
     - *`va_list`* is used in situations in which we need to access optional parameters and it is an argument list. So, our list will contain some data that will be accessed after we declare our *`va_list`*
-    - The *`va_list`* macro declares a variable representing each argument. This variable is used by the other three macros.
     - *`va_list`* is like any other type. It’s effectively a pointer to an arguments in the var-args array. After calling *`va_start`*, argp points at the first var-argument.
-3. *`va_start`* is a macro which accepts two arguments, a *`va_list`* and the name of the variable that directly precedes the ellipsis ("..."). So in the function a_function, to initialize a_list with va_start, you would write va_start ( a_list, x );
+3. *`va_start`* is a macro which accepts two arguments, is used to initialize a va_list with the address of the first argument after the fixed arguments.
     ```c
       int ft_printf(char* format, ...)
       {
@@ -40,8 +39,6 @@ For detailed information, refer to the [subject of this project](https://github.
 
 
 ## 🗒 Notes
-- ### Printf 
-  Printf is the C language function to do formatted printing. The same function is also available in PERL. 
 - ### Variable Argument Lists
   Some otherwise portable C programs depend on the argument passing scheme, implicitly assuming that all arguments are passed on the stack, and arguments appear in increasing order on the stack. Programs that make these assumptions never have been portable, but they have worked on many implementations. However, they do not work on the AMD64 architecture because some arguments are passed in registers. Portable C programs must use the header file `<stdarg.h>` in order to handle variable argument lists. When a function taking variable-arguments is called, %al must be set to the total number of floating point parameters passed to the function in vector register.<br>
   When __m256 or __m512 is passed as variable-argument, it should always be passed on stack. Only named __m256 and __m512 arguments may be passed in register as specified in section <br>
