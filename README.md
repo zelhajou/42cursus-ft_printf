@@ -24,7 +24,7 @@ For detailed information, refer to the [subject of this project](https://github.
 1. **`va_list`** : Create a list of arguments
     - *`va_list`* is used in situations in which we need to access optional parameters and it is an argument list. So, our list will contain some data that will be accessed after we declare our *`va_list`*
     - *`va_list`* is like any other type. It’s effectively a pointer to an arguments in the var-args array. After calling *`va_start`*, argp points at the first var-argument.
-3. *`va_start`* is a macro which accepts two arguments, is used to initialize a va_list with the address of the first argument after the fixed arguments.
+3. *`va_start`* is used to initialize a va_list with the address of the first argument after the fixed arguments.
     ```c
       int ft_printf(char* format, ...)
       {
@@ -33,8 +33,9 @@ For detailed information, refer to the [subject of this project](https://github.
         // ...
       }
     ```
-2. ```va_arg``` You call it with a va_list and a type, and it takes value pointed at by the ```va_list``` as a value of the given type, then increment the pointer by the size of that pointer. For example, ```va_arg(argp, int)``` will return ```(int) *argp```, and increment the pointer, so ```argp += sizeof int```.
-3. At the point that we’ve stopped consuming arguments, we must call ```va_end(argp)``` cleaning up whatever memory was used when the va_end variable was declared.
+2. ```va_arg``` o is used to access the arguments one by one, by incrementing a pointer to the current argument in memory . You call it with a va_list and a type, and it takes value pointed at by the ```va_list``` as a value of the given type, then increment the pointer by the size of that pointer. For example, ```va_arg(argp, int)``` will return ```(int) *argp```, and increment the pointer, so ```argp += sizeof int```.
+
+4. At the point that we’ve stopped consuming arguments, we must call ```va_end(argp)``` cleaning up whatever memory was used when the va_end variable was declared.
 
 
 
