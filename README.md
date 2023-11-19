@@ -1,11 +1,11 @@
 # [ft_printf](https://github.com/zakelhajoui/ft_printf/blob/main/ft_printf.c)
 
-## ℹ️ About
+## About
 ft_printf is a custom implementation of the printf() function in C. The function provides similar functionality to the standard printf() function, but with some additional features and improvements.
 
 For detailed information, refer to the [subject of this project](https://github.com/zakelhajoui/ft_printf/blob/main/en.subject.pdf).
 
-## ⚙️ Variadic functions
+## Variadic functions
   Variadic functions are functions that take a variable number of arguments. We typically use variadic function when we don’t know the total number of arguments that will be used for a function. Basically one single function could potentially have n number of arguments.
 
   ```c 
@@ -39,7 +39,7 @@ For detailed information, refer to the [subject of this project](https://github.
 
 
 
-## 🗒 Notes
+## Notes
 - ### Variable Argument Lists
   Some otherwise portable C programs depend on the argument passing scheme, implicitly assuming that all arguments are passed on the stack, and arguments appear in increasing order on the stack. Programs that make these assumptions never have been portable, but they have worked on many implementations. However, they do not work on the AMD64 architecture because some arguments are passed in registers. Portable C programs must use the header file `<stdarg.h>` in order to handle variable argument lists. When a function taking variable-arguments is called, %al must be set to the total number of floating point parameters passed to the function in vector register.<br>
   When __m256 or __m512 is passed as variable-argument, it should always be passed on stack. Only named __m256 and __m512 arguments may be passed in register as specified in section <br>
@@ -72,7 +72,7 @@ For detailed information, refer to the [subject of this project](https://github.
 - ### The `va_arg` Macro : <br>
   The va_arg macro is usually implemented as a compiler builtin and expanded in simplified forms for each particular type.
 
-## 📌 Useful Links
+## Useful Links
 - [c-varargs](https://jameshfisher.com/2016/11/23/c-varargs/)
 - [Variable Argument Lists in C using va_list](https://www.cprogramming.com/tutorial/c/lesson17.html)
 - [C Variadic Function](https://www.thegeekstuff.com/2017/05/c-variadic-functions/)
