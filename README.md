@@ -1,6 +1,4 @@
-![42_ft_printf_banner_new](https://github.com/zelhajou/ft_printf/assets/39954629/eb78a022-50cf-4644-a80a-9c6f87233cf7)
-
-# ft_printf
+![ft_printf](https://github.com/zelhajou/ft_printf/assets/39954629/1bd2e5d2-8745-4fd5-bac3-b00ccb526382)
 
 ## About
 ft_printf is a custom implementation of the printf() function in C. The function provides similar functionality to the standard printf() function, but with some additional features and improvements.
