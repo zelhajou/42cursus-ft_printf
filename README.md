@@ -1,4 +1,5 @@
-![ft_printf](https://github.com/zelhajou/ft_printf/assets/39954629/1bd2e5d2-8745-4fd5-bac3-b00ccb526382)
+
+![ascii-text-art (1)](https://github.com/zelhajou/ft_printf/assets/39954629/57370d68-d605-4027-b216-7d7c09236e8b)
 
 ## About
 ft_printf is a custom implementation of the printf() function in C. The function provides similar functionality to the standard printf() function, but with some additional features and improvements.
